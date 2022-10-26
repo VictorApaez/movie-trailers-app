@@ -17,5 +17,5 @@ const Image = styled.div`
   background-size: cover;
   background-clip: content-box;
   aspect-ratio: 16/9;
-  padding: 0.2rem;
+  padding: 0.5rem;
 `;

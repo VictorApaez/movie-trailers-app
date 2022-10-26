@@ -1,13 +1,13 @@
 import "./App.css";
 import styled from "styled-components";
-import Slider from "./components/Slider";
+import Sliders from "./components/Sliders";
 
 import Header from "./components/Header";
 function App() {
   return (
     <Container>
       <Header />
-      <Slider />
+      <Sliders />
     </Container>
   );
 }

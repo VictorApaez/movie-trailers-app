@@ -26,7 +26,7 @@ export default Slider;
 
 const Container = styled.div`
   background-color: yellow;
-  width: 100%;
-  /* height: 30vmin; */
+  width: 90%;
   display: flex;
+  /* transform: translateX(-100%); */
 `;
