@@ -4,6 +4,7 @@ function Sliders() {
   return (
     <Container>
       <Slide />
+      <Slide />
     </Container>
   );
 }
