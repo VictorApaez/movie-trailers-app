@@ -8,7 +8,7 @@ let urlTopMovies = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKe
 function Slider() {
   let [movies, setMovies] = useState("");
   const refSlider = useRef(null);
-
+  let slide = 0;
   useEffect(() => {
     fetch(urlTopMovies)
       .then((res) => res.json())
@@ -16,11 +16,13 @@ function Slider() {
         setMovies(res.results);
       });
   }, []);
-  const handleLeft = (e) => {
-    console.log(refSlider.current);
+  const handleLeft = () => {
+    if (slide > 0) slide -= 100;
+    refSlider.current.style.transform = `translateX(-${slide}%)`;
   };
   const handleRight = (e) => {
-    console.log(refSlider.current);
+    if (slide + 100 < 500) slide += 100;
+    refSlider.current.style.transform = `translateX(-${slide}%)`;
   };
 
   return (
@@ -38,16 +40,16 @@ function Slider() {
 export default Slider;
 
 const Container = styled.div`
-  background-color: yellow;
   width: 100%;
   display: flex;
   margin-bottom: 10px;
+  overflow: hidden;
 `;
 
 const SlideContainer = styled.div`
-  background-color: purple;
   width: 90%;
   display: flex;
+  transition: transform 1s ease-in-out;
   /* transform: translateX(-100%); */
 `;
 

@@ -20,6 +20,6 @@ const Container = styled.div`
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: black;
+    background-color: #141414;
   }
 `;

@@ -3,7 +3,9 @@ import Slide from "./Slider";
 function Sliders() {
   return (
     <Container>
+      <Header>New Releases</Header>
       <Slide />
+      <Header>Trending Now</Header>
       <Slide />
     </Container>
   );
@@ -12,10 +14,10 @@ function Sliders() {
 export default Sliders;
 
 const Container = styled.div`
-  background-color: orange;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 100%;
 `;
+
+const Header = styled.h3``;
