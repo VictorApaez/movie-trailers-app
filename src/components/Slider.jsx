@@ -3,9 +3,10 @@ import MovieSlide from "./MovieSlide";
 import { useEffect, useState, useRef } from "react";
 
 let apiKey = "4bb0e757619267e381c73a006aa412e2";
-let urlTopMovies = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`;
 
-function Slider() {
+function Slider(props) {
+  let urlTopMovies = `https://api.themoviedb.org/3${props.genre}?api_key=${apiKey}`;
+
   let [movies, setMovies] = useState("");
   const refSlider = useRef(null);
   let slide = 0;
@@ -27,12 +28,16 @@ function Slider() {
 
   return (
     <Container>
-      <Button onClick={handleLeft}>L</Button>
+      <Button onClick={handleLeft}>
+        <span className="material-symbols-outlined">arrow_back_ios</span>
+      </Button>
       <SlideContainer ref={refSlider}>
         {movies &&
           movies.map((movie, i) => <MovieSlide key={i} data={movie} />)}
       </SlideContainer>
-      <Button onClick={handleRight}>R</Button>
+      <Button onClick={handleRight}>
+        <span className="material-symbols-outlined">arrow_forward_ios</span>
+      </Button>
     </Container>
   );
 }
@@ -43,14 +48,16 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   margin-bottom: 10px;
-  overflow: hidden;
+  overflow: visible;
 `;
 
 const SlideContainer = styled.div`
   width: 90%;
   display: flex;
   transition: transform 1s ease-in-out;
-  /* transform: translateX(-100%); */
+  &:hover div {
+    transform: translateX(-12%);
+  }
 `;
 
 const Button = styled.div`
