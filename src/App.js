@@ -1,11 +1,11 @@
-import "./App.css";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import styled from "styled-components";
 import Sliders from "./components/Sliders";
-
 import Header from "./components/Header";
 function App() {
   return (
     <Container>
+      <GlobalStyle />
       <Header />
       <Sliders />
     </Container>
@@ -15,7 +15,11 @@ function App() {
 export default App;
 
 const Container = styled.div`
-  background-color: black;
-  height: 100vh;
   color: white;
+`;
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: black;
+  }
 `;
