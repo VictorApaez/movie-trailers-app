@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import Slider from "./Slider";
 function Sliders() {
-  // let upcomingMovies =
-
   return (
     <Container>
       <Header>Movies Playing Now</Header>
@@ -27,7 +25,6 @@ export default Sliders;
 
 const Container = styled.div`
   overflow-x: hidden;
-
   display: flex;
   flex-direction: column;
   justify-content: center;

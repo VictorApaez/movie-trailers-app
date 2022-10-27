@@ -13,11 +13,9 @@ function MovieSlide(props) {
 export default MovieSlide;
 
 const Container = styled.div`
-  flex: 0 0 25%;
-  margin: 0.2rem;
-  border-radius: 2px;
+  flex: 0 0 20%;
   position: relative;
-  aspect-ratio: 16/9;
+  aspect-ratio: 3/4;
   overflow: visible;
   transition: transform 0.5s ease-in-out;
   cursor: pointer;
@@ -31,6 +29,8 @@ const Container = styled.div`
 `;
 
 const Image = styled.div`
+  padding: 0 3px;
+  border-radius: 6px;
   background: url(${(props) => props.src});
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,7 +44,6 @@ const Image = styled.div`
 
   &:hover {
     transform: scale(1.5) !important;
-    /* transform: translateX(0) !important; */
     z-index: 1;
   }
 `;
