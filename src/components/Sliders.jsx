@@ -1,12 +1,24 @@
 import styled from "styled-components";
-import Slide from "./Slider";
+import Slider from "./Slider";
 function Sliders() {
+  // let upcomingMovies =
+
   return (
     <Container>
-      <Header>New Releases</Header>
-      <Slide />
-      <Header>Trending Now</Header>
-      <Slide />
+      <Header>Movies Playing Now</Header>
+      <Slider genre={"/movie/now_playing"} />
+
+      <Header>TV Shows Playing Now</Header>
+      <Slider genre={"/tv/on_the_air"} />
+
+      <Header>Top Rated TV Shows</Header>
+      <Slider genre={"/tv/popular"} />
+
+      <Header>Popular Movies</Header>
+      <Slider genre={"/movie/popular"} />
+
+      <Header>Popular TV Shows</Header>
+      <Slider genre={"/tv/popular"} />
     </Container>
   );
 }
@@ -20,4 +32,6 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const Header = styled.h3``;
+const Header = styled.h4`
+  margin-left: 5%;
+`;
