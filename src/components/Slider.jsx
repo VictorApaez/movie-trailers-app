@@ -48,7 +48,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   margin-bottom: 10px;
-  overflow: visible;
+  overflow-y: visible;
 `;
 
 const SlideContainer = styled.div`
