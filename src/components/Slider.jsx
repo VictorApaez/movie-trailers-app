@@ -5,40 +5,46 @@ import { useEffect, useState, useRef } from "react";
 let apiKey = "4bb0e757619267e381c73a006aa412e2";
 
 function Slider(props) {
-  let urlTopMovies = `https://api.themoviedb.org/3${props.genre}?api_key=${apiKey}`;
-
   let [movies, setMovies] = useState("");
+  const [loading, setLoading] = useState(true);
   const refSlider = useRef(null);
+
+  let urlTopMovies = `https://api.themoviedb.org/3${props.genre}?api_key=${apiKey}`;
   let slide = 0;
   useEffect(() => {
     fetch(urlTopMovies)
       .then((res) => res.json())
       .then((res) => {
+        setLoading(false);
         setMovies(res.results);
       });
-  }, []);
+  }, [props.fetchInfo]);
   const handleLeft = () => {
     if (slide > 0) slide -= 100;
     refSlider.current.style.transform = `translateX(-${slide}%)`;
   };
   const handleRight = (e) => {
-    if (slide + 100 < 500) slide += 100;
+    if (slide + 100 < 400) slide += 100;
     refSlider.current.style.transform = `translateX(-${slide}%)`;
   };
 
+  if (loading) return <h1></h1>;
   return (
-    <Container>
-      <Button onClick={handleLeft}>
-        <span className="material-symbols-outlined">arrow_back_ios</span>
-      </Button>
-      <SlideContainer ref={refSlider}>
-        {movies &&
-          movies.map((movie, i) => <MovieSlide key={i} data={movie} />)}
-      </SlideContainer>
-      <Button onClick={handleRight}>
-        <span className="material-symbols-outlined">arrow_forward_ios</span>
-      </Button>
-    </Container>
+    <>
+      <Header>{props.title}</Header>
+      <Container>
+        <Button onClick={handleLeft}>
+          <span className="material-symbols-outlined">arrow_back_ios</span>
+        </Button>
+        <SlideContainer ref={refSlider}>
+          {movies &&
+            movies.map((movie, i) => <MovieSlide key={i} data={movie} />)}
+        </SlideContainer>
+        <Button onClick={handleRight}>
+          <span className="material-symbols-outlined">arrow_forward_ios</span>
+        </Button>
+      </Container>
+    </>
   );
 }
 
@@ -51,12 +57,17 @@ const Container = styled.div`
   overflow-y: visible;
 `;
 
+const Header = styled.h4`
+  margin-left: 5%;
+`;
+
 const SlideContainer = styled.div`
   width: 90%;
   display: flex;
   transition: transform 1s ease-in-out;
   &:hover div {
     transform: translateX(-12%);
+    transition-delay: 0.3s;
   }
 `;
 

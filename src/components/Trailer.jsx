@@ -6,22 +6,22 @@ function Trailer() {
         width="100%"
         margin-top="-80px"
         height="500px"
-        src="https://www.youtube.com/embed/i_mAWKyfj6c?playlist=i_mAWKyfj6c&loop=1&autoplay=1controls=0&modestbranding=1"
+        src="https://www.youtube.com/embed/i_mAWKyfj6c?playlist=i_mAWKyfj6c&loop=1&autoplay=1&controls=0&modestbranding=1"
         title="YouTube video player"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullScreen
       ></iframe>
       <MovieInfo>
         <p>Netflix Film</p>
         <h1>Halloween Ends</h1>
         <ButtonContainer>
           <Button>
-            <span class="material-symbols-outlined">play_arrow</span>
+            <span className="material-symbols-outlined">play_arrow</span>
             <p>Play</p>
           </Button>
           <Button>
-            <span class="material-symbols-outlined">info</span>
+            <span className="material-symbols-outlined">info</span>
             <p>More info</p>
           </Button>
         </ButtonContainer>

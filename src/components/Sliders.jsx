@@ -1,22 +1,18 @@
 import styled from "styled-components";
 import Slider from "./Slider";
-function Sliders() {
+function Sliders(props) {
   return (
     <Container>
-      <Header>Movies Playing Now</Header>
-      <Slider genre={"/movie/now_playing"} />
-
-      <Header>TV Shows Playing Now</Header>
-      <Slider genre={"/tv/on_the_air"} />
-
-      <Header>Top Rated TV Shows</Header>
-      <Slider genre={"/tv/popular"} />
-
-      <Header>Popular Movies</Header>
-      <Slider genre={"/movie/popular"} />
-
-      <Header>Popular TV Shows</Header>
-      <Slider genre={"/tv/popular"} />
+      {props.data.map((genre, i) => {
+        return (
+          <Slider
+            key={i}
+            genre={genre[1]}
+            title={genre[0]}
+            fetchInfo={props.data}
+          />
+        );
+      })}
     </Container>
   );
 }
@@ -29,8 +25,4 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-`;
-
-const Header = styled.h4`
-  margin-left: 5%;
 `;

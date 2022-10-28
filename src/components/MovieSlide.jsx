@@ -22,9 +22,11 @@ const Container = styled.div`
 
   &:hover ~ div {
     transform: translateX(36%) !important;
+    transition-delay: 0.3s;
   }
   &:hover {
     transform: translateX(0) !important;
+    transition-delay: 0.3s;
   }
 `;
 
@@ -43,6 +45,7 @@ const Image = styled.div`
   transition: transform 0.5s ease-in-out;
 
   &:hover {
+    transition-delay: 0.3s;
     transform: scale(1.5) !important;
     z-index: 1;
   }
