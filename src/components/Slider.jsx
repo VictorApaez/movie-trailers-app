@@ -11,14 +11,24 @@ function Slider(props) {
 
   let urlTopMovies = `https://api.themoviedb.org/3${props.genre}?api_key=${apiKey}`;
   let slide = 0;
-  useEffect(() => {
+  function fetchData() {
     fetch(urlTopMovies)
-      .then((res) => res.json())
+      .then((res) => res.text())
+      .then((res) => {
+        const json = res === "" ? {} : JSON.parse(res);
+        return json;
+      })
       .then((res) => {
         setLoading(false);
         setMovies(res.results);
+      })
+      .catch(error=>{
+        console.log("ERROR: "+error)
       });
-  }, [props.fetchInfo]);
+  }
+
+  useEffect(fetchData, [props.fetchInfo]);
+  
   const handleLeft = () => {
     if (slide > 0) slide -= 100;
     refSlider.current.style.transform = `translateX(-${slide}%)`;

@@ -13,7 +13,7 @@ function Header() {
   return (
     <HeaderContainer>
       <Left>
-        <Logo>NETFLIX</Logo>
+        <Logo>Trailers</Logo>
         <BrowseLinks>Browse</BrowseLinks>
         <Links>
           {/* <BrowseLinks>Browse</BrowseLinks> */}

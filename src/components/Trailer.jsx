@@ -4,7 +4,6 @@ function Trailer() {
     <Container>
       <iframe
         width="100%"
-        margin-top="-80px"
         height="500px"
         src="https://www.youtube.com/embed/i_mAWKyfj6c?playlist=i_mAWKyfj6c&loop=1&autoplay=1&controls=0&modestbranding=1"
         title="YouTube video player"
@@ -13,7 +12,7 @@ function Trailer() {
         allowFullScreen
       ></iframe>
       <MovieInfo>
-        <p>Netflix Film</p>
+        <p>Movie Trailer</p>
         <h1>Halloween Ends</h1>
         <ButtonContainer>
           <Button>
