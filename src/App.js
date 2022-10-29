@@ -1,4 +1,4 @@
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import Header from "./components/Header";

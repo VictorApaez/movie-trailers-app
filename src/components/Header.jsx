@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 function Header() {
-  const inputTag = useRef(null);
   const [toggle, setToggle] = useState(true);
 
   const handleSearchAnime = (e) => {
