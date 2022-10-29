@@ -13,7 +13,7 @@ function Header() {
   return (
     <HeaderContainer>
       <Left>
-        <Logo>Trailers</Logo>
+        <Logo>TRAILERS</Logo>
         <BrowseLinks>Browse</BrowseLinks>
         <Links>
           {/* <BrowseLinks>Browse</BrowseLinks> */}
