@@ -30,7 +30,7 @@ const Container = styled.div`
   }
 
   @media (max-width: 600px) {
-    flex-basis: 25%;
+    flex-basis: 33.3%;
   }
   @media (min-width: 1200px) {
     flex-basis: 14.2857%;
