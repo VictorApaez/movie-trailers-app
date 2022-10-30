@@ -9,9 +9,9 @@ function Slider(props) {
   const [loading, setLoading] = useState(true);
   const refSlider = useRef(null);
 
-  let urlTopMovies = `https://api.themoviedb.org/3${props.genre}?api_key=${apiKey}`;
   let slide = 0;
   function fetchData() {
+    let urlTopMovies = `https://api.themoviedb.org/3${props.genre}?api_key=${apiKey}`;
     fetch(urlTopMovies)
       .then((res) => res.text())
       .then((res) => {
@@ -26,7 +26,7 @@ function Slider(props) {
         console.log("ERROR: "+error)
       });
   }
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(fetchData, [props.fetchInfo]);
   
   const handleLeft = () => {
@@ -38,7 +38,7 @@ function Slider(props) {
     refSlider.current.style.transform = `translateX(-${slide}%)`;
   };
 
-  if (loading) return <h1></h1>;
+  if (loading) return <p></p>;
   return (
     <>
       <Header>{props.title}</Header>
@@ -59,12 +59,33 @@ function Slider(props) {
 }
 
 export default Slider;
+const Button = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 5%;
+  z-index: 999;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+  }
+`;
 
 const Container = styled.div`
   width: 100%;
   display: flex;
   margin-bottom: 10px;
   overflow-y: visible;
+
+  &:hover {
+    ${Button} {
+      opacity: 1;
+    }
+  }
 `;
 
 const Header = styled.h4`
@@ -75,22 +96,11 @@ const SlideContainer = styled.div`
   width: 90%;
   display: flex;
   transition: transform 1s ease-in-out;
+  
   &:hover div {
     transform: translateX(-12%);
     transition-delay: 0.3s;
   }
 `;
 
-const Button = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 5%;
-  z-index: 999;
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-    cursor: pointer;
-  }
-`;
