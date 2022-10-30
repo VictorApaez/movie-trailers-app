@@ -15,7 +15,7 @@ export default MovieSlide;
 const Container = styled.div`
   flex: 0 0 20%;
   position: relative;
-  aspect-ratio: 3/4;
+  aspect-ratio: 185/278;
   overflow: visible;
   transition: transform 0.5s ease-in-out;
   cursor: pointer;
@@ -28,6 +28,14 @@ const Container = styled.div`
     transform: translateX(0) !important;
     transition-delay: 0.3s;
   }
+
+  @media (max-width: 600px) {
+    flex-basis: 25%;
+  }
+  @media (min-width: 1200px) {
+    flex-basis: 14.2857%;
+  }
+
 `;
 
 const Image = styled.div`
