@@ -76,6 +76,7 @@ function MoreInfo() {
 export default MoreInfo;
 
 const Container = styled.div`
+  margin-top: -90px;
   display: flex;
   flex-direction: column;
   align-items: center;
