@@ -19,7 +19,6 @@ function Slider(props) {
     ).then(success);
     Promise.all([pageOne, pageTwo]).then(([pageOneRes, pageTwoRes]) => {
       let combined = [...pageOneRes.results, ...pageTwoRes.results.slice(0, 4)];
-      console.log(combined);
       setMovies(combined);
     });
   }

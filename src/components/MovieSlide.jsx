@@ -1,22 +1,24 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
 function MovieSlide(props) {
   return (
-    <Container to="/more-info" state={{ data: props.data }}>
+    <Container>
       <Image
         src={`https://image.tmdb.org/t/p/w185/${props.data.poster_path}`}
       ></Image>
-      <Info>
-        <p>{props.data.title || props.data.name}</p>
-      </Info>
+      <HoverDiv>
+        <Info to="/more-info" state={{ data: props.data }}>
+          <p>{props.data.title || props.data.name}</p>
+        </Info>
+        <span className="material-symbols-outlined">star</span>
+      </HoverDiv>
     </Container>
   );
 }
 
 export default MovieSlide;
 
-const Container = styled(Link)`
+const Container = styled.div`
   flex: 0 0 33.3%;
   position: relative;
   aspect-ratio: 185/278;
@@ -34,25 +36,37 @@ const Container = styled(Link)`
     flex-basis: 12.5%;
   }
 `;
-const Info = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  align-items: center;
-  height: 100%;
-  opacity: 0;
-  width: 100%;
-  transition: all ease-in 0.3s;
-  color: white;
-  border-radius: 6px;
 
+const HoverDiv = styled.div`
+  position: absolute;
+  opacity: 0;
+  transition: all ease-in 0.3s;
+  border-radius: 6px;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
   &:hover {
     background-color: rgba(0, 0, 0, 0.8);
     opacity: 1;
   }
+  & > span {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 99;
+  }
 `;
-const Image = styled.div`
+const Info = styled(Link)`
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+  align-items: center;
+`;
+const Image = styled(Link)`
   border-radius: 6px;
   background: url(${(props) => props.src});
   background-repeat: no-repeat;

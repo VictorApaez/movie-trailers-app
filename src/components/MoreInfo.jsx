@@ -24,7 +24,6 @@ function MoreInfo() {
         return json;
       })
       .then((res) => {
-        console.log(res);
         let key;
         if (res.videos) {
           key = res?.videos.results.find(
