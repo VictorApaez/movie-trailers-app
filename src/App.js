@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Movies from "./components/Movies";
 import TvShows from "./components/TvShows";
 import { useState } from "react";
+import MoreInfo from "./components/MoreInfo";
 
 function App() {
   const [fetchInfo, setFetchInfo] = useState(["empty"]);
@@ -29,6 +30,7 @@ function App() {
           path="/movies"
           element={<Movies setFetchInfo={setFetchInfo} fetchInfo={fetchInfo} />}
         />
+        <Route path="/more-info" element={<MoreInfo />} />
       </Routes>
     </Container>
   );

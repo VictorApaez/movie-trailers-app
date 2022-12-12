@@ -2,15 +2,6 @@ import styled from "styled-components";
 function Trailer() {
   return (
     <Container>
-      <iframe
-        width="100%"
-        height="500px"
-        src="https://www.youtube.com/embed/i_mAWKyfj6c?playlist=i_mAWKyfj6c&loop=1&autoplay=1&controls=0&modestbranding=1"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
       <MovieInfo>
         <p>Movie Trailer</p>
         <h1>Halloween Ends</h1>
@@ -32,8 +23,13 @@ function Trailer() {
 export default Trailer;
 
 const Container = styled.div`
-  margin-top: -100px;
   position: relative;
+  background-image: url("https://image.tmdb.org/t/p/w185//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg");
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+
+  /* width: 100vw; */
+  height: 100px;
 `;
 
 const MovieInfo = styled.div`

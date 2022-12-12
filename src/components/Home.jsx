@@ -1,5 +1,4 @@
 import Sliders from "./Sliders";
-import Trailer from "./Trailer";
 import { useState } from "react";
 
 function Home(props) {
@@ -13,8 +12,7 @@ function Home(props) {
 
   return (
     <>
-      <Trailer />
-      <Sliders data={fetchInfo} />
+      <Sliders data={fetchInfo} setFetchInfo={setFetchInfo} />
     </>
   );
 }
